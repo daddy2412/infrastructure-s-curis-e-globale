@@ -1,2 +1,1 @@
-# infrastructure-s-curis-e-globale
-homelab, cybersecurity, soc, siem, wazuh, opnsense, hyper-v, network-security,  grafana, prometheus, security-onion, edr, ndr, infrastructure, high-availability
+<img width="1246" height="931" alt="image" src="https://github.com/user-attachments/assets/fc8a0b22-681e-47e0-9810-0308d35586f2" />
