@@ -81,12 +81,16 @@ Monitoring ── Prometheus + exporters → Grafana
 ```
 
 ---
-
 ## 📊 Captures d'écran
+
+**Pare-feu OPNsense — tableau de bord**
+
+![OPNsense Dashboard](./opnsense-dashboard.png)
+
+**Monitoring Grafana — supervision serveur**
 
 ![Grafana](./grafana-dashboard.png)
 
----
 
 ## 🎯 Objectif du projet
 
