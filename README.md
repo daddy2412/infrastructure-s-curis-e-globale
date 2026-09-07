@@ -87,9 +87,17 @@ Monitoring ── Prometheus + exporters → Grafana
 
 ![OPNsense Dashboard](./opnsense-dashboard.png)
 
-**Monitoring Grafana — supervision serveur**
+**Wazuh — agents SIEM actifs (100 % de couverture)**
+
+![Wazuh Agents](./wazuh-agents.png)
+
+**Monitoring Grafana — supervision serveur (vue d'ensemble)**
 
 ![Grafana](./grafana-dashboard.png)
+
+**Monitoring Grafana — métriques détaillées (réseau, disque, exceptions système)**
+
+![Grafana détails](./grafana-details.png)
 
 
 ## 🎯 Objectif du projet
