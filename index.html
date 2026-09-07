@@ -71,11 +71,29 @@
   .stat .num{font-family:'IBM Plex Mono', monospace; font-size:1.5rem; color:var(--cyan); font-weight:600;}
   .stat .lbl{font-size:0.78rem; color:var(--text-dim); margin-top:4px;}
 
+  /* HERO ENTRANCE ANIMATION — one orchestrated sequence, staggered */
+  .hero-anim{opacity:0; transform:translateY(14px); animation:heroReveal 0.7s cubic-bezier(.16,.8,.3,1) forwards;}
+  .hero-anim.d1{animation-delay:.05s;}
+  .hero-anim.d2{animation-delay:.15s;}
+  .hero-anim.d3{animation-delay:.28s;}
+  .hero-anim.d4{animation-delay:.4s;}
+  @keyframes heroReveal{to{opacity:1; transform:translateY(0);}}
+  @media (prefers-reduced-motion: reduce){
+    .hero-anim{animation:none; opacity:1; transform:none;}
+  }
+
   /* SECTION HEADERS */
   section{padding:56px 0;}
   .sec-head{display:flex; align-items:baseline; gap:14px; margin-bottom:28px; border-bottom:1px solid var(--panel-line); padding-bottom:14px;}
   .sec-num{font-family:'IBM Plex Mono', monospace; color:var(--text-dim); font-size:0.85rem;}
   .sec-head h2{font-size:1.5rem; font-weight:600;}
+
+  /* SCROLL REVEAL — sections fade/rise into place once, on entry */
+  .reveal{opacity:0; transform:translateY(20px); transition:opacity .6s ease, transform .6s cubic-bezier(.16,.8,.3,1);}
+  .reveal.in-view{opacity:1; transform:translateY(0);}
+  @media (prefers-reduced-motion: reduce){
+    .reveal{opacity:1; transform:none; transition:none;}
+  }
 
   /* ARCHITECTURE DIAGRAM */
   .diagram{
@@ -111,21 +129,36 @@
   .result-item .check{color:var(--cyan); font-family:'IBM Plex Mono', monospace; flex-shrink:0;}
   .result-item p{font-size:0.9rem; color:var(--text-dim);}
 
-  /* SCREENSHOT */
+  /* SCREENSHOTS */
   .shot{
     background:var(--panel); border:1px solid var(--panel-line); border-radius:4px;
     overflow:hidden; margin-bottom:16px;
   }
   .shot img{width:100%; display:block;}
   .shot .cap{padding:12px 16px; font-family:'IBM Plex Mono', monospace; font-size:0.8rem; color:var(--text-dim); border-top:1px solid var(--panel-line);}
+  .shot-grid{display:grid; grid-template-columns:repeat(auto-fit,minmax(320px,1fr)); gap:16px;}
 
   /* ABOUT */
   .about-box{
     background:var(--panel); border:1px solid var(--panel-line); border-radius:4px; padding:28px;
-    display:grid; grid-template-columns:1fr; gap:20px;
+    display:grid; grid-template-columns:1fr; gap:24px;
   }
-  .about-box p{color:var(--text-dim); font-size:0.95rem; max-width:640px;}
-  .tags{display:flex; flex-wrap:wrap; gap:8px; margin-top:16px;}
+  .about-box p{color:var(--text-dim); font-size:0.95rem; max-width:680px;}
+  .about-role{border-left:2px solid var(--panel-line); padding-left:16px; margin-top:4px;}
+  .about-role.cyan{border-left-color:var(--cyan);}
+  .about-role.amber{border-left-color:var(--amber);}
+  .about-role h4{font-size:0.95rem; font-weight:600; margin-bottom:6px;}
+  .about-role h4 .period{color:var(--text-dim); font-weight:400; font-family:'IBM Plex Mono', monospace; font-size:0.8rem; margin-left:8px;}
+  .about-role ul{list-style:none; display:flex; flex-direction:column; gap:5px; margin-top:8px;}
+  .about-role li{font-size:0.86rem; color:var(--text-dim); padding-left:14px; position:relative;}
+  .about-role li::before{content:"—"; position:absolute; left:0; color:var(--text-dim);}
+  .cert-list{display:flex; flex-wrap:wrap; gap:8px; margin-top:10px;}
+  .cert{
+    font-family:'IBM Plex Mono', monospace; font-size:0.78rem; color:var(--amber);
+    border:1px solid rgba(232,163,61,0.3); padding:4px 10px; border-radius:3px;
+    background:rgba(232,163,61,0.06);
+  }
+  .tags{display:flex; flex-wrap:wrap; gap:8px; margin-top:4px;}
   .tag{
     font-family:'IBM Plex Mono', monospace; font-size:0.78rem; color:var(--cyan);
     border:1px solid rgba(79,216,201,0.3); padding:4px 10px; border-radius:3px;
@@ -159,10 +192,10 @@
 
 <header class="hero">
   <div class="wrap">
-    <div class="status-line"><span class="status-dot"></span>SYSTÈME OPÉRATIONNEL · SUPERVISION 24/7</div>
-    <h1>Un laboratoire réseau conçu comme une <em>vraie</em> infrastructure de production.</h1>
-    <p class="hero-sub">Pare-feu périmétrique, virtualisation haute disponibilité, SOC complet (SIEM/XDR/NDR/EDR) et supervision temps réel — déployés et opérés de bout en bout.</p>
-    <div class="hero-stats">
+    <div class="status-line hero-anim d1"><span class="status-dot"></span>SYSTÈME OPÉRATIONNEL · SUPERVISION 24/7</div>
+    <h1 class="hero-anim d2">Un laboratoire réseau conçu comme une <em>vraie</em> infrastructure de production.</h1>
+    <p class="hero-sub hero-anim d3">Pare-feu périmétrique, virtualisation haute disponibilité, SOC complet (SIEM/XDR/NDR/EDR) et supervision temps réel — déployés et opérés de bout en bout.</p>
+    <div class="hero-stats hero-anim d4">
       <div class="stat"><div class="num">02</div><div class="lbl">hôtes Hyper-V (HA)</div></div>
       <div class="stat"><div class="num">04</div><div class="lbl">couches de sécurité</div></div>
       <div class="stat"><div class="num">00</div><div class="lbl">port entrant ouvert</div></div>
@@ -172,7 +205,7 @@
 </header>
 
 <section id="architecture">
-  <div class="wrap">
+  <div class="wrap reveal">
     <div class="sec-head"><span class="sec-num">01</span><h2>Architecture réseau</h2></div>
     <div class="diagram">
       <pre>Internet
@@ -194,7 +227,7 @@ Monitoring      ── Prometheus + exporters → <span class="hl">Grafana</span
 </section>
 
 <section id="stack">
-  <div class="wrap">
+  <div class="wrap reveal">
     <div class="sec-head"><span class="sec-num">02</span><h2>Stack technique</h2></div>
     <div class="stack-grid">
       <div class="stack-card cyan">
@@ -245,17 +278,23 @@ Monitoring      ── Prometheus + exporters → <span class="hl">Grafana</span
 </section>
 
 <section id="capture">
-  <div class="wrap">
+  <div class="wrap reveal">
     <div class="sec-head"><span class="sec-num">03</span><h2>Supervision en direct</h2></div>
-    <div class="shot">
-      <img src="./assets/grafana-dashboard.png" alt="Dashboard Grafana — supervision serveur Windows">
-      <div class="cap">grafana · windows_exporter · SRV-WEB01 · CPU, RAM, disque, réseau, I/O — fenêtre 3h</div>
+    <div class="shot-grid">
+      <div class="shot">
+        <img src="./opnsense-dashboard.png" alt="Tableau de bord OPNsense — pare-feu périmétrique">
+        <div class="cap">opnsense · lobby dashboard · uptime, interfaces, trafic réseau en temps réel</div>
+      </div>
+      <div class="shot">
+        <img src="./grafana-dashboard.png" alt="Dashboard Grafana — supervision serveur Windows">
+        <div class="cap">grafana · windows_exporter · SRV-WEB01 · CPU, RAM, disque, réseau, I/O — fenêtre 3h</div>
+      </div>
     </div>
   </div>
 </section>
 
 <section id="resultats">
-  <div class="wrap">
+  <div class="wrap reveal">
     <div class="sec-head"><span class="sec-num">04</span><h2>Résultats concrets</h2></div>
     <div class="results">
       <div class="result-item"><span class="check mono">✓</span><p>Infrastructure 100 % opérationnelle en production</p></div>
@@ -269,11 +308,38 @@ Monitoring      ── Prometheus + exporters → <span class="hl">Grafana</span
 </section>
 
 <section id="about">
-  <div class="wrap">
+  <div class="wrap reveal">
     <div class="sec-head"><span class="sec-num">05</span><h2>Profil</h2></div>
     <div class="about-box">
-      <p>EDE en télécommunications-électronique, 8+ années d'expérience en télécommunications et en électromécanique. Ce laboratoire a été conçu pour reproduire les défis réels d'une infrastructure IT de PME — sécurité périmétrique, haute disponibilité, détection de menaces et supervision continue — et démontrer des compétences directement applicables en administration réseau, cybersécurité (SOC) et infrastructure virtualisée.</p>
+      <p>Architecte de solutions multi-cloud avec plus de 10 ans d'expérience en technologie, depuis mes débuts en 2014 dans la digitalisation chez <b style="color:var(--text)">FabricaInfo</b> (Fortaleza, Brésil). Diplômé EDE en télécommunications-électronique, avec 8+ ans d'expérience combinée en télécommunications et en électromécanique. Ce laboratoire personnel illustre ma spécialisation continue vers l'infrastructure IT et la cybersécurité, en complément de mon expertise en architecture cloud multi-plateforme et de mon expérience terrain en déploiement réseau.</p>
+
+      <div class="about-role cyan">
+        <h4>Architecte de solutions <span class="period">Mytech APN (AWS) · 2022–2024</span></h4>
+      </div>
+
+      <div class="about-role amber">
+        <h4>Technicien Support IT Niveau II/III — Déploiement infrastructure réseau <span class="period">WorkMarket (AVASO) · Air Canada, clients GSB</span></h4>
+        <ul>
+          <li>Installation et configuration Citrix pour accès distant</li>
+          <li>Déploiement et configuration Intune (Company Portal, gestion d'appareils mobiles)</li>
+          <li>Configuration d'imprimantes Epson pour systèmes de billetterie</li>
+          <li>Installation physique (rack & stack) de pare-feu Fortinet FortiGate et commutateurs Cisco Catalyst 9300 PoE+</li>
+          <li>Déploiement de solutions de détection réseau (DarkTrace)</li>
+          <li>Câblage structuré et configuration via console Cisco</li>
+        </ul>
+      </div>
+
+      <div>
+        <h4 style="font-size:0.95rem; font-weight:600; margin-bottom:8px;">Certifications</h4>
+        <div class="cert-list">
+          <span class="cert">AWS Certified Solutions Architect – Associate</span>
+          <span class="cert">Microsoft Azure Administrator (AZ-104)</span>
+          <span class="cert">AWS Certified Cloud Practitioner</span>
+        </div>
+      </div>
+
       <div class="tags">
+        <span class="tag">Architecture multi-cloud</span>
         <span class="tag">Réseau & sécurité</span>
         <span class="tag">SIEM / XDR</span>
         <span class="tag">Virtualisation</span>
@@ -288,11 +354,24 @@ Monitoring      ── Prometheus + exporters → <span class="hl">Grafana</span
   <div class="wrap">
     <p>homelab_soc · documentation technique complète sur GitHub</p>
     <div class="links">
-      <a href="#" class="mono">github.com/votre-usager</a>
-      <a href="#" class="mono">contact</a>
+      <a href="https://github.com/daddy2412/infrastructure-s-curis-e-globale" class="mono">github.com/daddy2412</a>
     </div>
   </div>
 </footer>
+
+<script>
+  // Reveal sections on scroll — single, deliberate entrance per section, no repeated hover effects
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('in-view');
+        observer.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.15 });
+
+  document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+</script>
 
 </body>
 </html>
