@@ -9,7 +9,7 @@ Architecture réseau et sécurité déployée et opérée en environnement de la
 
 ## 📐 Vue d'ensemble de l'architecture
 
-![Architecture du lab](./assets/architecture.png)
+![Architecture du lab](./architecture.png)
 
 L'infrastructure repose sur deux hôtes physiques Hyper-V en haute disponibilité, un périmètre réseau protégé par OPNsense, un accès web public sécurisé via Cloudflare Zero Trust, et une pile de sécurité complète (SIEM, NDR, EDR) supervisée en temps réel.
 
@@ -57,28 +57,9 @@ L'infrastructure repose sur deux hôtes physiques Hyper-V en haute disponibilit�
 - Windows 11 (postes clients)
 - Ubuntu 22.04 LTS (Wazuh Manager)
 
-Inventaire technique complet : [`docs/technologies-labo.md`](./docs/technologies-labo.md)
+Inventaire technique complet : [`technologies-labo.md`](./technologies-labo.md)
 
 ---
-
-## 🗺️ Schéma d'architecture simplifié
-
-
----
-
-## 📊 Captures d'écran
-
-![Grafana](./assets/grafana-dashboard.png)
-
----
-
-## 🎯 Objectif du projet
-
-Ce lab a été conçu pour reproduire, en conditions réelles, les défis d'une infrastructure IT de PME : sécurité périmétrique, haute disponibilité, détection de menaces, supervision continue et bonnes pratiques de sauvegarde — dans le but de développer et démontrer des compétences directement applicables en administration réseau, cybersécurité (SOC) et infrastructure cloud/virtualisée.
-
-## 👤 À propos
-
-Diplômé EDE en télécommunications-électronique, 8+ ans d'expérience en télécommunications et en électromécanique. Ce projet personnel illustre une transition et une spécialisation vers l'infrastructure IT et la cybersécurité.
 
 ## 🗺️ Schéma d'architecture simplifié
 
@@ -100,3 +81,17 @@ Monitoring ── Prometheus + exporters → Grafana
 ```
 
 ---
+
+## 📊 Captures d'écran
+
+![Grafana](./grafana-dashboard.png)
+
+---
+
+## 🎯 Objectif du projet
+
+Ce lab a été conçu pour reproduire, en conditions réelles, les défis d'une infrastructure IT de PME : sécurité périmétrique, haute disponibilité, détection de menaces, supervision continue et bonnes pratiques de sauvegarde — dans le but de développer et démontrer des compétences directement applicables en administration réseau, cybersécurité (SOC) et infrastructure cloud/virtualisée.
+
+## 👤 À propos
+
+Diplômé EDE en télécommunications-électronique, 8+ ans d'expérience en télécommunications et en électromécanique. Ce projet personnel illustre une transition et une spécialisation vers l'infrastructure IT et la cybersécurité.
