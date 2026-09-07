@@ -98,4 +98,24 @@ Ce lab a été conçu pour reproduire, en conditions réelles, les défis d'une 
 
 ## 👤 À propos
 
-Diplômé EDE en télécommunications-électronique, 8+ ans d'expérience en télécommunications et en électromécanique. Ce projet personnel illustre une transition et une spécialisation vers l'infrastructure IT et la cybersécurité.
+Architecte de solutions multi-cloud avec plus de 10 ans d'expérience en technologie, depuis mes débuts en 2014 dans la digitalisation chez **FabricaInfo** (Fortaleza, Brésil). Diplômé EDE en télécommunications-électronique, avec 8+ ans d'expérience combinée en télécommunications et en électromécanique.
+
+**Expérience professionnelle :**
+
+**Architecte de solutions** — Mytech APN (AWS), 2022–2024
+
+**Technicien Support IT Niveau II/III — Déploiement infrastructure réseau**
+Missions terrain via WorkMarket (AVASO) pour Air Canada et clients GSB à travers le Québec :
+- Installation et configuration Citrix pour accès distant
+- Déploiement et configuration Intune (Company Portal, gestion d'appareils mobiles)
+- Configuration d'imprimantes Epson pour systèmes de billetterie
+- Installation physique (rack & stack) de pare-feu Fortinet FortiGate et commutateurs Cisco Catalyst 9300 PoE+
+- Déploiement de solutions de détection réseau (DarkTrace)
+- Câblage structuré et configuration via console Cisco
+
+**Certifications :**
+- AWS Certified Solutions Architect – Associate
+- Microsoft Certified: Azure Administrator Associate (AZ-104)
+- AWS Certified Cloud Practitioner
+
+Ce laboratoire personnel illustre ma spécialisation continue vers l'infrastructure IT et la cybersécurité, en complément de mon expertise en architecture cloud multi-plateforme et de mon expérience terrain en déploiement réseau.
